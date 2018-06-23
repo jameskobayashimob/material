@@ -1,9 +1,14 @@
 package android.test.com.material
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_static_maps.*
+import kotlinx.android.synthetic.main.activity_static_maps.static_map_view
+
 
 class StaticMapActivity : AppCompatActivity() {
 
@@ -11,10 +16,19 @@ class StaticMapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_static_maps)
 
-        val url = "https://maps.googleapis.com/maps/api/staticmap?center=Albany,+NY&zoom=13&scale=1&size=600x300&maptype=roadmap&format=webp&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:X%7CAlbany,+NY"
+        val latEiffelTower = "48.858235";
+        val lngEiffelTower = "2.294571";
+        val url = "https://maps.google.com/maps/api/staticmap?center=$latEiffelTower,$lngEiffelTower&zoom=15&size=2000x800&sensor=false"
 
         Glide.with(this)
                 .load(url)
                 .into(static_map_view)
+
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 131)
+        } else {
+
+        }
     }
 }
