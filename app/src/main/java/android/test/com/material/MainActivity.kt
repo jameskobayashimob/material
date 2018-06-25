@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
 
-        val sliceUri = Uri.parse("content://android.test.com.material/").buildUpon().appendPath("hello").build()
-        val slice = SliceViewManager.getInstance(this).bindSlice(sliceUri)
+//        val sliceUri = Uri.parse("content://android.test.com.material/").buildUpon().appendPath("hello").build()
+//        val slice = SliceViewManager.getInstance(this).bindSlice(sliceUri)
 
 //        SliceLiveData.fromUri(activity, feedItem.uri).observe((activity), Observer({ sliceResult ->
 //            //                    holder.itemView.slice_view.slice = sliceResult

@@ -14,28 +14,28 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".StaticMapActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".MainActivity">
             <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
 
-        <provider
-            android:name=".MaterialSliceProvider"
-            android:authorities="android.test.com.material"
-            android:exported="true">
+        <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.app.slice.category.SLICE" />
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </provider>
+        </activity>
+
+        <!--<provider-->
+            <!--android:name=".MaterialSliceProvider"-->
+            <!--android:authorities="android.test.com.material"-->
+            <!--android:exported="true">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+                <!--<category android:name="android.app.slice.category.SLICE" />-->
+            <!--</intent-filter>-->
+        <!--</provider>-->
     </application>
 
 </manifest>
