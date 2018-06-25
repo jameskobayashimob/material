@@ -9,6 +9,8 @@ import android.test.com.material.recycler.FeedItem.Companion.VIEW_TYPE_SERVER
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.list_item_card_three.view.body
+import kotlinx.android.synthetic.main.list_item_card_three.view.timestamp
 import kotlinx.android.synthetic.main.list_item_simple.view.subtitle
 import kotlinx.android.synthetic.main.list_item_simple.view.title
 
@@ -19,7 +21,7 @@ class CardAdapter internal constructor(val activity: AppCompatActivity, private 
         return when (viewType) {
 //            VIEW_TYPE_SLICE -> ViewHolder(inflater.inflate(R.layout.list_item_slice, parent, false))
             VIEW_TYPE_SERVER -> ViewHolder(inflater.inflate(R.layout.list_item_card_one, parent, false))
-            VIEW_TYPE_LOCAL -> ViewHolder(inflater.inflate(R.layout.list_item_card_one, parent, false))
+            VIEW_TYPE_LOCAL -> ViewHolder(inflater.inflate(R.layout.list_item_card_three, parent, false))
             else -> ViewHolder(inflater.inflate(R.layout.list_item_simple, parent, false))
         }
     }
@@ -28,8 +30,8 @@ class CardAdapter internal constructor(val activity: AppCompatActivity, private 
         val feedItem = listData[position]
         when (feedItem) {
             is FeedItem.Local -> {
-                holder.itemView.title.text = "Card Title"
-                holder.itemView.subtitle.text = "Some description text."
+                holder.itemView.body.text = "Something about an event happening goes in here. Assumed two lines available."
+                holder.itemView.timestamp.text = "Yesterday at 6:25pm"
             }
             is FeedItem.Server -> {
                 holder.itemView.title.text = "Card Title"
