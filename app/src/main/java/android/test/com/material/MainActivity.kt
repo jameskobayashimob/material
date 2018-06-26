@@ -1,6 +1,5 @@
 package android.test.com.material
 
-import android.net.Uri
 import android.os.Bundle
 import android.support.design.bottomnavigation.LabelVisibilityMode
 import android.support.design.widget.BottomNavigationView
@@ -8,8 +7,10 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.test.com.material.recycler.CardAdapter
 import android.test.com.material.recycler.FeedItem
-import androidx.slice.SliceViewManager
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.fab_menu
+import kotlinx.android.synthetic.main.activity_main.listview
+import kotlinx.android.synthetic.main.activity_main.navigation
+import kotlinx.android.synthetic.main.activity_main.toolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,8 +30,9 @@ class MainActivity : AppCompatActivity() {
 //        }))
 
         val feed = mutableListOf<FeedItem>()
-        feed.add(FeedItem.Local("Local message here!"))
-        feed.add(FeedItem.Server("Push notification or server message!"))
+        for (i in 0..20) {
+            feed.add(FeedItem(i))
+        }
 //        feed.add(FeedItem.Slice(slice))
 
         val adapter = CardAdapter(this, feed,

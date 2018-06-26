@@ -2,7 +2,7 @@ package android.test.com.material.recycler
 
 import androidx.slice.Slice
 
-sealed class FeedItem(val viewType: Int) {
+open class FeedItem(val viewType: Int) {
     companion object {
         const val VIEW_TYPE_LOCAL = 0
         const val VIEW_TYPE_SERVER = 1
